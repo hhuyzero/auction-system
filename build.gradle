@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Thư viện H2 Database (cho tầng persistence của Người 3)
+    implementation 'com.h2database:h2:2.2.224'
+
+    // Thư viện jBCrypt (cho tính năng mã hóa mật khẩu)
+    implementation 'org.mindrot:jbcrypt:0.4'
+
+    // Thư viện Gson (để parse JSON cho Socket Server)
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // JUnit dependencies có sẵn
+    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
